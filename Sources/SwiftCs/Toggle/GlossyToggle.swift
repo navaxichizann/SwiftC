@@ -29,7 +29,7 @@ public struct GlossyToggle: View {
     public var glass: ToggleGlass
     public var type: GlossyToggleStyle
     
-    public init(bool: Binding<Bool>, action: @escaping () -> Void = {}, cornerRadius: Int = 18, tint: Color = .blue, type: GlossyToggleStyle = .slider(shows: .power), glass: ToggleGlass = .nonGlass(tintOption: .more(light: .white, dark: .black))) {
+    public init(_ bool: Binding<Bool>, action: @escaping () -> Void = {}, cornerRadius: Int = 18, tint: Color = .blue, type: GlossyToggleStyle = .slider(shows: .power), glass: ToggleGlass = .nonGlass(tintOption: .more(light: .white, dark: .black))) {
         self._variable = bool
         self.action = action
         self.cornerRadius = cornerRadius
