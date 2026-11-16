@@ -9,7 +9,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SwiftCToggle",
+            name: "SwiftCs",
             targets: ["SwiftCs"]
         )
     ],
