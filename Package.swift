@@ -5,7 +5,7 @@ let package = Package(
     name: "SwiftCs",
     platforms: [
         .iOS(.v26),
-        .macOS(.v27)
+        .macOS(.v26)
     ],
     products: [
         .library(
