@@ -1,8 +1,8 @@
 import SwiftUI
 
 public enum GlossyToggleStyle {
-    case slider(shows: Shows)
-    case box(shows: ShowsOne)
+    case slider(_ shows: Shows)
+    case box(_ shows: ShowsOne)
     
     public enum Shows {
         case off
@@ -24,14 +24,15 @@ public enum GlossyToggleStyle {
 }
 public enum ToggleGlass {
     case glass
-    case nonGlass(tintOption: tintopt)
+    case nonGlass(_ tintOption: tintopt)
     
     public enum tintopt {
         case more(light: Color, dark: Color)
-        case one(color: Color)
+        case one(_ color: Color)
     }
 }
 public struct GlossyToggle: View {
+    @GestureState private var isPressed = false
     @Environment(\.isEnabled) var isEnabled
     @Environment(\.colorScheme) var cs
     @Binding public var variable: Bool
@@ -40,7 +41,7 @@ public struct GlossyToggle: View {
     public var glass: ToggleGlass
     public var type: GlossyToggleStyle
     
-    public init(_ bool: Binding<Bool>, action: @escaping () -> Void = {}, radius: Int = 18, type: GlossyToggleStyle = .slider(shows: .power(.one)), glass: ToggleGlass = .nonGlass(tintOption: .more(light: .white, dark: .black))) {
+    public init(_ bool: Binding<Bool>, action: @escaping () -> Void = {}, radius: Int = 18, type: GlossyToggleStyle = .slider(.power(.one)), glass: ToggleGlass = .nonGlass(.more(light: .white, dark: .black))) {
         self._variable = bool
         self.action = action
         self.cornerRadius = radius
@@ -63,9 +64,21 @@ public struct GlossyToggle: View {
                         .opacity(0)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .updating($isPressed) { _, state, _ in
+                            state = true
+                        }
+                )
             }
             .frame(width: 80, height: 45)
             .opacity(0.9)
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .updating($isPressed) { _, state, _ in
+                        state = true
+                    }
+            )
         case .box :
             ZStack {
                 Box()
@@ -80,9 +93,21 @@ public struct GlossyToggle: View {
                         .opacity(0)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .updating($isPressed) { _, state, _ in
+                            state = true
+                        }
+                )
             }
             .frame(width: 50, height: 50)
             .opacity(0.9)
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .updating($isPressed) { _, state, _ in
+                        state = true
+                    }
+            )
         }
     }
     
@@ -94,6 +119,7 @@ public struct GlossyToggle: View {
             .saturation(isEnabled ? 1.0 : 0.6)
             .brightness(isEnabled ? 0.0 : -0.25)
             .opacity(isEnabled ? 1.0 : 0.75)
+            .scaleEffect(isPressed ? 0.95 : 1.0)
             .overlay(
                 ZStack {
                     switch glass {
@@ -105,6 +131,13 @@ public struct GlossyToggle: View {
                             .offset(x: variable ? 17.5 : -17.5) 
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
+                            .scaleEffect(isPressed ? 0.95 : 1.0)
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .updating($isPressed) { _, state, _ in
+                                        state = true
+                                    }
+                            )
                     case .nonGlass :
                         RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
                             .frame(width: 38, height: 38)
@@ -112,10 +145,23 @@ public struct GlossyToggle: View {
                             .offset(x: variable ? 17.5 : -17.5) 
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
+                            .scaleEffect(isPressed ? 0.95 : 1.0)
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .updating($isPressed) { _, state, _ in
+                                        state = true
+                                    }
+                            )
                     }
                     typeshow()
                 }
                     .padding(5)
+            )
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .updating($isPressed) { _, state, _ in
+                        state = true
+                    }
             )
     }
     public func Box() -> some View {
@@ -125,6 +171,7 @@ public struct GlossyToggle: View {
             .saturation(isEnabled ? 1.0 : 0.6)
             .brightness(isEnabled ? 0.0 : -0.25)
             .opacity(isEnabled ? 1.0 : 0.75)
+            .scaleEffect(isPressed ? 0.95 : 1.0)
             .overlay(
                 ZStack {
                     switch glass {
@@ -134,15 +181,35 @@ public struct GlossyToggle: View {
                             .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 5))
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
+                            .scaleEffect(isPressed ? 0.95 : 1.0)
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .updating($isPressed) { _, state, _ in
+                                        state = true
+                                    }
+                            )
                     case .nonGlass :
                         RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 5)
                             .foregroundStyle(sctoggle)
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
+                            .scaleEffect(isPressed ? 0.95 : 1.0)
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .updating($isPressed) { _, state, _ in
+                                        state = true
+                                    }
+                            )
                     }
                     typeshow()
                 }
                     .padding(5)
+            )
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .updating($isPressed) { _, state, _ in
+                        state = true
+                    }
             )
     }
     public func typeshow() -> some View {
@@ -184,15 +251,24 @@ public struct GlossyToggle: View {
                 case .power :
                     Text(!variable ? "O" : "I")
                         .foregroundStyle(sctoggleS)
+                        .scaleEffect(isPressed ? 0.95 : 1.0)
                 case .icon(let on, let off) :
                     Image(systemName: variable ? on : off)
                         .foregroundStyle(sctoggleS)
+                        .scaleEffect(isPressed ? 0.95 : 1.0)
                 case .text(let on, let off) : 
                     Text(variable ? on : off)
                         .foregroundStyle(sctoggleS)
+                        .scaleEffect(isPressed ? 0.95 : 1.0)
                 }
             }
         }
+        .gesture(
+            DragGesture(minimumDistance: 0)
+                .updating($isPressed) { _, state, _ in
+                    state = true
+                }
+        )
     }
     public func typeshow_power(_ shows: Bool) -> some View {
         ZStack{
@@ -201,15 +277,18 @@ public struct GlossyToggle: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, variable ? 16 : 13)
                     .foregroundStyle(variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
                 Text("O")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, !variable ? 12 : 9)
                     .foregroundStyle(!variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             } else {
                 Text(variable ? "I" : "O")
                     .padding(variable ? 14 : 10)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
                     .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             }
         }
     }
@@ -220,15 +299,18 @@ public struct GlossyToggle: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, variable ? 11 : 8)
                     .foregroundStyle(variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
                 Image(systemName: off)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, !variable ? 11 : 8)
                     .foregroundStyle(!variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             } else {
                 Image(systemName: variable ? on : off)
                     .padding(8)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
                     .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             }
         }
     }
@@ -239,15 +321,18 @@ public struct GlossyToggle: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, variable ? 9 : 6)
                     .foregroundStyle(variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
                 Text(off)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, !variable ? 9 : 6)
                     .foregroundStyle(!variable || !isEnabled ? sctoggleS : .secondary)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             } else {
                 Text(variable ? on : off)
                     .padding(6)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
                     .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
             }
         }
     }
@@ -278,4 +363,3 @@ public struct GlossyToggle: View {
         }
     }
 }
-
