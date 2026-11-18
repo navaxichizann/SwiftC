@@ -48,7 +48,7 @@ struct ContentView: View {
 }
 ```
 
-**Features**
+## Features
 
 You can use this by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
