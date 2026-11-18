@@ -48,11 +48,12 @@ struct ContentView: View {
 
 You can use this by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
-GlossyToggle($Bool, 
-action: {Action}, 
-radius: Int, 
-type: type(shows: shows(icon, on: String, off: String)), 
-glass: glass(color(light: Color, dark: Color)))
+GlossyToggle(
+        $Bool, 
+        action: {Action},     
+        radius: Int, 
+        type: type(shows: shows(icon, on: String, off: String)), 
+        glass: glass(color(light: Color, dark: Color)))
 ```
 
 
