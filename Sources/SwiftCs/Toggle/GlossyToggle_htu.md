@@ -1,7 +1,7 @@
-***How to use: GlossyToggle** /Glossy Toggle Ver 1.2/*
+# How to use: GlossyToggle
+/GlossyToggle Ver 1.2.03/
 
 GlossyToggle is a highly customizable, modern toggle component for SwiftUI supporting glassmorphism effects, flexible styling styles, icons, text labels, and power states.
-Features
 
 **Features (Summarized)**
 
