@@ -49,11 +49,30 @@ struct ContentView: View {
 You can use this by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
 GlossyToggle(
-        $Bool, 
-        action: {Action},     
-        radius: Int, 
+        $Bool,
+        action: {Action}, 
+        radius: Int,
         type: type(shows: shows(icon, on: String, off: String)), 
-        glass: glass(color(light: Color, dark: Color)))
+        glass: glass(color(light: Color, dark: Color))
+        )
+    .tint(Color)
+    .disabled(Bool)
 ```
 
+**Inside GlossyToggle**
 
+$Bool is a input for Binding Boolean
+
+action: is for inputting the action it’ll do.
+
+radius: is for putting the radius of the Corners
+
+type: include 2 type as .slider for basic normal toggle, and .box is for checkboxes. Inside .slider and .box is (shows: which have 4 type as .off for no icons, .power for basic normal switch icon, .icon for specific icon and .text for texts. inside it is icon which have .one and .both for slider only, on and off for icons and texts. 
+
+glass: include 2 type is .glass and .nonGlass for nonGlass contains 2 types is .one and .more for .one you must put in the Color, while .more contain light and dark color of the version.
+
+**Outside GlossyToggle**
+
+.tint is for changing the color of the Toggle
+
+.disabled is for disabling the toggle and make the toggle color change.
