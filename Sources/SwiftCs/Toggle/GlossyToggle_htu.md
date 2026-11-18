@@ -7,7 +7,7 @@ GlossyToggle is a highly customizable, modern toggle component for SwiftUI suppo
 
 • Multiple Styles: Choose between .slider and .box toggle layouts.
 
-• Glassmorphism Support: Easily toggle between frosted glass aesthetics and custom tinted non-glass backgrounds.
+• Glassmorphism Support: Easily toggle between glass aesthetics and custom tinted non-glass backgrounds.
 
 • Flexible Indicators: Configure internal icons, text labels, power symbols (I/O), or keep it clean with .off.
 
