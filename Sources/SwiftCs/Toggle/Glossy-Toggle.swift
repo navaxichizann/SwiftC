@@ -102,14 +102,14 @@ public struct GlossyToggle: View {
                             .frame(width: 38, height: 38)
                             .foregroundStyle(cs == .light ? .clear : .gray)
                             .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 4))
-                            .offset(x: variable ? 17 : -17) 
+                            .offset(x: variable ? 17.5 : -17.5) 
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
                     case .nonGlass :
                         RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
                             .frame(width: 38, height: 38)
                             .foregroundStyle(sctoggle)
-                            .offset(x: variable ? 17 : -17) 
+                            .offset(x: variable ? 17.5 : -17.5) 
                             .saturation(isEnabled ? 1.0 : 0.5)
                             .brightness(isEnabled ? 0.0 : -0.2)
                     }
