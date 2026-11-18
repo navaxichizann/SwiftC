@@ -57,7 +57,7 @@ GlossyToggle(
         action: {Action}, 
         radius: Int,
         type: type(shows: shows(icon, on: String, off: String)), 
-        glass: glass(color(light: Color, dark: Color))
+        glass: .glass(glassType)/.nonGlass(color(light: Color, dark: Color))
         )
     .tint(Color)
     .disabled(Bool)
