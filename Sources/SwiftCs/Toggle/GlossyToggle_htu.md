@@ -13,6 +13,8 @@ GlossyToggle is a highly customizable, modern toggle component for SwiftUI suppo
 
 • State Aware: Fully respects SwiftUI's @Environment(\.isEnabled) and color schemes (light/dark).
 
+• Pressed Animation: Full small interactive element animation when pressed.
+
 **Example** 
 
 *Must add the package first using this link (https://github.com/navaxichizann/SwiftCs.git)*
