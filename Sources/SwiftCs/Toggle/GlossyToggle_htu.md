@@ -75,7 +75,7 @@ GlossyToggle(
 
 4. type: include 2 type as .slider for basic normal toggle, and .box is for checkboxes. Inside .slider and .box is (shows: which         have 4 type as .off for no icons, .power for basic normal switch icon, .icon for specific icon and .text for texts. inside it is     icon which have .one and .both for slider only, on and off for icons and texts. 
 
-5. glass: include 2 type is .glass and .nonGlass for nonGlass contains 2 types is .one and .more for .one you must put in the Color,     while .more contain light and dark color of the version.
+5. glass: include 2 type is .glass and .nonGlass for .glass contains 2 types is .normal and .frosted, .normal will use normal glassEffect while .frosted will use background(.ultraThinMaterial), for .nonGlass also contains 2 types is .one and .more for .one you must put the Color, while .more contain light and dark color of the version.
 
 **Outside GlossyToggle**
 
