@@ -1,5 +1,5 @@
 # How to use: GlossyToggle
-/GlossyButton Ver 1.0.0/
+/GlossyButton Ver 1.0.03/
 
 GlossyButton is highly customizable, modern button component for SwiftUI supporting glassmorphism effects, flexible styling like normal button and Gesture state.
 
@@ -49,3 +49,5 @@ struct ContentView: View {
     }
 }
 ```
+
+## Features
