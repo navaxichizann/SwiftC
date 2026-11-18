@@ -56,7 +56,7 @@ GlossyToggle(
         $Bool,
         action: {Action}, 
         radius: Int,
-        type: type(shows: shows(icon, on: String, off: String)), 
+        type: type(shows(icon, on: String, off: String)), 
         glass: .glass(glassType)/.nonGlass(color(light: Color, dark: Color))
         )
     .tint(Color)
