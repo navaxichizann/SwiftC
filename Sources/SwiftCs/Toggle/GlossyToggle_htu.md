@@ -79,6 +79,6 @@ GlossyToggle(
 
 **Outside GlossyToggle**
 
-1. .tint is for changing the color of the Toggle
+1. .tint is for changing the color of the Toggle, if not added it will use the accent color, if the accent color is not set it will use system blue or .blue
 
 2. .disabled is for disabling the toggle and make the toggle color change.
