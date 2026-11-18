@@ -50,6 +50,8 @@ struct ContentView: View {
 
 ## Features
 
+*You don’t have to add everything in the full customization code for it work. You only need to put it in order.*
+
 You can use this feature by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
 GlossyToggle(
