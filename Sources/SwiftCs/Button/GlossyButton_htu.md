@@ -3,7 +3,9 @@
 
 GlossyButton is highly customizable, modern button component for SwiftUI supporting glassmorphism effects, flexible styling like normal button.
 
-**Features (Summarized**
+**Features (Summarized)**
+
+• 
 
 **Example** 
 
