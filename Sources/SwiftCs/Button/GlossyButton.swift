@@ -21,6 +21,7 @@ public enum label {
 
 public struct GlossyButton<Label: View>: View {
     @GestureState private var isPressed = false
+    @Environment(\.isEnabled) var isEnabled
     @Environment(\.colorScheme) var cs
     public var action: () -> Void
     public var radius: CGFloat
@@ -50,6 +51,9 @@ public struct GlossyButton<Label: View>: View {
                 .glassEffect(in: .rect(cornerRadius: CGFloat(radius)))
                 .foregroundStyle(.tint)
                 .frame(width: 100, height: 50)
+                .saturation(isEnabled ? 1.0 : 0.6)
+                .brightness(isEnabled ? 0.0 : -0.25)
+                .opacity(isEnabled ? 1.0 : 0.75)
                 .scaleEffect(isPressed ? 0.95 : 1.0)
                 .overlay(
                     ZStack {
@@ -87,6 +91,9 @@ public struct GlossyButton<Label: View>: View {
                                 RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
                                     .foregroundStyle(color)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
+                                    .saturation(isEnabled ? 1.0 : 0.6)
+                                    .brightness(isEnabled ? 0.0 : -0.25)
+                                    .opacity(isEnabled ? 1.0 : 0.75)
                                     .scaleEffect(isPressed ? 0.95 : 1.0)
                                     .gesture(
                                         DragGesture(minimumDistance: 0)
@@ -98,6 +105,9 @@ public struct GlossyButton<Label: View>: View {
                                 RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
                                     .foregroundStyle(cs == .light ? light : dark)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
+                                    .saturation(isEnabled ? 1.0 : 0.6)
+                                    .brightness(isEnabled ? 0.0 : -0.25)
+                                    .opacity(isEnabled ? 1.0 : 0.75)
                                     .scaleEffect(isPressed ? 0.95 : 1.0)
                                     .gesture(
                                         DragGesture(minimumDistance: 0)
@@ -114,6 +124,9 @@ public struct GlossyButton<Label: View>: View {
                                 .opacity(0)
                         })
                         sLabel()
+                            .saturation(isEnabled ? 1.0 : 0.6)
+                            .brightness(isEnabled ? 0.0 : -0.25)
+                            .opacity(isEnabled ? 1.0 : 0.75)
                             .gesture(
                                 DragGesture(minimumDistance: 0)
                                     .updating($isPressed) { _, state, _ in
