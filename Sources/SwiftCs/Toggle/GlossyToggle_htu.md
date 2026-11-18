@@ -55,12 +55,12 @@ struct ContentView: View {
 You can use this feature by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
 GlossyToggle(
-        $Bool,
-        action: {Action}, 
-        radius: Int,
-        type: type(shows(icon, on: String, off: String)), 
-        glass: .glass(glassType)/.nonGlass(color(light: Color, dark: Color))
-        )
+    $Bool,
+    action: {Action}, 
+    radius: Int,
+    type: type(shows(icon, on: String, off: String)), 
+    glass: .glass(glassType)/.nonGlass(color(light: Color, dark: Color))
+    )
     .tint(Color)
     .disabled(Bool)
 ```
