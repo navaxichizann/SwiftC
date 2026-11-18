@@ -50,7 +50,7 @@ struct ContentView: View {
 
 ## Features
 
-You can use this by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
+You can use this feature by adding ```GlossyToggle($Bool)``` in to your code or full customization code > 
 ```
 GlossyToggle(
         $Bool,
