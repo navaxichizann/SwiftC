@@ -38,8 +38,8 @@ struct ContentView: View {
                     print("Toggle changed to: \(isOn)")
                 },
                 radius: 16,
-                type: .slider(shows: .power(.one)),
-                glass: .nonGlass(tintOption: .more(light: .white, dark: .black))
+                type: .slider(.power(.one)),
+                glass: .nonGlass(.more(light: .white, dark: .black))
             )
             .tint(.green)
         }
