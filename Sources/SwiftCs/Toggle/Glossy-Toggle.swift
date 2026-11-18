@@ -40,10 +40,10 @@ public struct GlossyToggle: View {
     public var glass: ToggleGlass
     public var type: GlossyToggleStyle
     
-    public init(_ bool: Binding<Bool>, action: @escaping () -> Void = {}, cornerRadius: Int = 18, type: GlossyToggleStyle = .slider(shows: .power(.one)), glass: ToggleGlass = .nonGlass(tintOption: .more(light: .white, dark: .black))) {
+    public init(_ bool: Binding<Bool>, action: @escaping () -> Void = {}, radius: Int = 18, type: GlossyToggleStyle = .slider(shows: .power(.one)), glass: ToggleGlass = .nonGlass(tintOption: .more(light: .white, dark: .black))) {
         self._variable = bool
         self.action = action
-        self.cornerRadius = cornerRadius
+        self.cornerRadius = radius
         self.type = type
         self.glass = glass
     }
