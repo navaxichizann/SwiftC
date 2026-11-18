@@ -23,12 +23,16 @@ public enum GlossyToggleStyle {
     }
 }
 public enum ToggleGlass {
-    case glass
+    case glass(_ glasstype: glasstype)
     case nonGlass(_ tintOption: tintopt)
     
     public enum tintopt {
         case more(light: Color, dark: Color)
         case one(_ color: Color)
+    }
+    public enum glasstype {
+        case frosted
+        case normal
     }
 }
 public struct GlossyToggle: View {
@@ -123,21 +127,37 @@ public struct GlossyToggle: View {
             .overlay(
                 ZStack {
                     switch glass {
-                    case .glass :
-                        RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
-                            .frame(width: 38, height: 38)
-                            .foregroundStyle(cs == .light ? .clear : .gray)
-                            .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 4))
-                            .offset(x: variable ? 17.5 : -17.5) 
-                            .saturation(isEnabled ? 1.0 : 0.5)
-                            .brightness(isEnabled ? 0.0 : -0.2)
-                            .scaleEffect(isPressed ? 0.95 : 1.0)
-                            .gesture(
-                                DragGesture(minimumDistance: 0)
-                                    .updating($isPressed) { _, state, _ in
-                                        state = true
-                                    }
-                            )
+                    case .glass(let glasstype) :
+                        switch glasstype {
+                        case .normal :
+                            RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
+                                .frame(width: 38, height: 38)
+                                .foregroundStyle(cs == .light ? .clear : .gray)
+                                .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 4))
+                                .offset(x: variable ? 17.5 : -17.5) 
+                                .saturation(isEnabled ? 1.0 : 0.5)
+                                .brightness(isEnabled ? 0.0 : -0.2)
+                                .scaleEffect(isPressed ? 0.95 : 1.0)
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .updating($isPressed) { _, state, _ in
+                                            state = true
+                                        }
+                                )
+                        case .frosted :
+                            RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
+                                .background(.ultraThinMaterial, in: .rect(cornerRadius: CGFloat(cornerRadius) - 4))
+                                .frame(width: 38, height: 38)
+                                .foregroundStyle(.clear)
+                                .offset(x: variable ? 17.5 : -17.5)
+                                .scaleEffect(isPressed ? 0.95 : 1.0)
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .updating($isPressed) { _, state, _ in
+                                            state = true
+                                        }
+                                )
+                        }
                     case .nonGlass :
                         RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 4)
                             .frame(width: 38, height: 38)
@@ -175,19 +195,33 @@ public struct GlossyToggle: View {
             .overlay(
                 ZStack {
                     switch glass {
-                    case .glass :
-                        RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 5)
-                            .foregroundStyle(cs == .light ? .clear : .gray)
-                            .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 5))
-                            .saturation(isEnabled ? 1.0 : 0.5)
-                            .brightness(isEnabled ? 0.0 : -0.2)
-                            .scaleEffect(isPressed ? 0.95 : 1.0)
-                            .gesture(
-                                DragGesture(minimumDistance: 0)
-                                    .updating($isPressed) { _, state, _ in
-                                        state = true
-                                    }
-                            )
+                    case .glass(let glasstype) :
+                        switch glasstype {
+                        case .normal :
+                            RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 5)
+                                .foregroundStyle(cs == .light ? .clear : .gray)
+                                .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius) - 5))
+                                .saturation(isEnabled ? 1.0 : 0.5)
+                                .brightness(isEnabled ? 0.0 : -0.2)
+                                .scaleEffect(isPressed ? 0.95 : 1.0)
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .updating($isPressed) { _, state, _ in
+                                            state = true
+                                        }
+                                )
+                        case .frosted :
+                            RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 5)
+                                .background(.ultraThinMaterial, in: .rect(cornerRadius: CGFloat(cornerRadius) - 5))
+                                .foregroundStyle(.clear)
+                                .scaleEffect(isPressed ? 0.95 : 1.0)
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .updating($isPressed) { _, state, _ in
+                                            state = true
+                                        }
+                                )
+                        }
                     case .nonGlass :
                         RoundedRectangle(cornerRadius: CGFloat(cornerRadius) - 5)
                             .foregroundStyle(sctoggle)
