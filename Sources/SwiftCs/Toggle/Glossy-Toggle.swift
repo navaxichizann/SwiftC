@@ -93,6 +93,7 @@ public struct GlossyToggle: View {
             .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius)))
             .saturation(isEnabled ? 1.0 : 0.6)
             .brightness(isEnabled ? 0.0 : -0.25)
+            .opacity(isEnabled ? 1.0 : 0.75)
             .overlay(
                 ZStack {
                     switch glass {
@@ -123,6 +124,7 @@ public struct GlossyToggle: View {
             .glassEffect(in: .rect(cornerRadius: CGFloat(cornerRadius)))
             .saturation(isEnabled ? 1.0 : 0.6)
             .brightness(isEnabled ? 0.0 : -0.25)
+            .opacity(isEnabled ? 1.0 : 0.75)
             .overlay(
                 ZStack {
                     switch glass {
@@ -207,7 +209,7 @@ public struct GlossyToggle: View {
                 Text(variable ? "I" : "O")
                     .padding(variable ? 14 : 10)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
-                    .foregroundStyle(sctoggleS)
+                    .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
             }
         }
     }
@@ -226,7 +228,7 @@ public struct GlossyToggle: View {
                 Image(systemName: variable ? on : off)
                     .padding(8)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
-                    .foregroundStyle(sctoggleS)
+                    .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
             }
         }
     }
@@ -245,7 +247,7 @@ public struct GlossyToggle: View {
                 Text(variable ? on : off)
                     .padding(6)
                     .frame(maxWidth: .infinity, alignment: variable ? .leading : .trailing)
-                    .foregroundStyle(sctoggleS)
+                    .foregroundStyle(sctoggle == .clear ? .white : sctoggle)
             }
         }
     }
