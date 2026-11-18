@@ -61,18 +61,20 @@ GlossyToggle(
 
 **Inside GlossyToggle**
 
-$Bool is a input for Binding Boolean
+*Please put these in order*
 
-action: is for inputting the action it’ll do.
+1. $Bool is a input for Binding Boolean
 
-radius: is for putting the radius of the Corners
+2. action: is for inputting the action it’ll do.
 
-type: include 2 type as .slider for basic normal toggle, and .box is for checkboxes. Inside .slider and .box is (shows: which have 4 type as .off for no icons, .power for basic normal switch icon, .icon for specific icon and .text for texts. inside it is icon which have .one and .both for slider only, on and off for icons and texts. 
+3. radius: is for putting the radius of the Corners
 
-glass: include 2 type is .glass and .nonGlass for nonGlass contains 2 types is .one and .more for .one you must put in the Color, while .more contain light and dark color of the version.
+4. type: include 2 type as .slider for basic normal toggle, and .box is for checkboxes. Inside .slider and .box is (shows: which         have 4 type as .off for no icons, .power for basic normal switch icon, .icon for specific icon and .text for texts. inside it is     icon which have .one and .both for slider only, on and off for icons and texts. 
+
+5. glass: include 2 type is .glass and .nonGlass for nonGlass contains 2 types is .one and .more for .one you must put in the Color,     while .more contain light and dark color of the version.
 
 **Outside GlossyToggle**
 
-.tint is for changing the color of the Toggle
+1. .tint is for changing the color of the Toggle
 
-.disabled is for disabling the toggle and make the toggle color change.
+2. .disabled is for disabling the toggle and make the toggle color change.
