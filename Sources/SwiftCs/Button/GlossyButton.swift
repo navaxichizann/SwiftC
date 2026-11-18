@@ -1,12 +1,16 @@
 import SwiftUI
 
 public enum glass {
-    case glass
+    case glass(_ glasstype: glasstype)
     case nonGlass(_ colors: color)
     
     public enum color {
         case one(_ color: Color)
         case more(light: Color, dark: Color)
+    }
+    public enum glasstype {
+        case normal
+        case frosted
     }
 }
 public enum label {
@@ -50,18 +54,33 @@ public struct GlossyButton<Label: View>: View {
                 .overlay(
                     ZStack {
                         switch glass {
-                        case .glass :
-                            RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
-                                .glassEffect(in: .rect(cornerRadius: CGFloat(radius) - 5))
-                                .foregroundStyle(.clear)
-                                .frame(width: 100 - padding * 2, height: 50 - padding * 2)
-                                .scaleEffect(isPressed ? 0.95 : 1.0)
-                                .gesture(
-                                    DragGesture(minimumDistance: 0)
-                                        .updating($isPressed) { _, state, _ in
-                                            state = true
-                                        }
-                                )
+                        case .glass(let type) :
+                            switch type {
+                            case .normal :
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
+                                    .glassEffect(in: .rect(cornerRadius: CGFloat(radius) - 5))
+                                    .foregroundStyle(cs == .light ? .clear : .gray)
+                                    .frame(width: 100 - padding * 2, height: 50 - padding * 2)
+                                    .scaleEffect(isPressed ? 0.95 : 1.0)
+                                    .gesture(
+                                        DragGesture(minimumDistance: 0)
+                                            .updating($isPressed) { _, state, _ in
+                                                state = true
+                                            }
+                                    )
+                            case .frosted :
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
+                                    .background(.ultraThinMaterial, in: .rect(cornerRadius: CGFloat(radius) - 5))
+                                    .foregroundStyle(.clear)
+                                    .frame(width: 100 - padding * 2, height: 50 - padding * 2)
+                                    .scaleEffect(isPressed ? 0.95 : 1.0)
+                                    .gesture(
+                                        DragGesture(minimumDistance: 0)
+                                            .updating($isPressed) { _, state, _ in
+                                                state = true
+                                            }
+                                    )
+                            }
                         case .nonGlass(let colors) :
                             switch colors {
                             case .one(let color) :
