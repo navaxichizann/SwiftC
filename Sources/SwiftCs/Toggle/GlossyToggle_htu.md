@@ -14,6 +14,7 @@ Features
 
 ```
 import SwiftUI
+import SwiftCs
 
 struct ContentView: View {
     @State private var isOn = false
