@@ -34,7 +34,7 @@ public struct GlossyButton<Label: View>: View {
         radius: CGFloat = 20,
         action: @escaping () -> Void = {},
         @ViewBuilder label: () -> Label,
-        glass: glass = .nonGlass(.one(.white)),
+        glass: glass = .nonGlass(.more(light: .white, dark: .black)),
         clabel: label = .tint,
         padding: CGFloat = 5
     ) {
@@ -122,7 +122,9 @@ public struct GlossyButton<Label: View>: View {
                         }, label: {
                             Text("Nothing")
                                 .opacity(0)
+                                .frame(width: 100, height: 50)
                         })
+                        .frame(width: 100, height: 50)
                         sLabel()
                             .saturation(isEnabled ? 1.0 : 0.6)
                             .brightness(isEnabled ? 0.0 : -0.25)
