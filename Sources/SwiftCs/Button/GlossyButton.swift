@@ -36,7 +36,7 @@ public struct GlossyButton<Label: View>: View {
         @ViewBuilder label: () -> Label,
         glass: glass = .nonGlass(.more(light: .white, dark: .black)),
         clabel: label = .tint,
-        padding: CGFloat = 5
+        padding: CGFloat = 3
     ) {
         self.radius = radius
         self.action = action
