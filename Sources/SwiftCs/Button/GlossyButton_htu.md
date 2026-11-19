@@ -57,6 +57,16 @@ struct ContentView: View {
 
 You can use this feature by adding ```GlossyButton(action: {Action}, label: {Labels}``` in to your code or full customization code > 
 ```
+GlossyButton(
+    radius: Int,
+    action: {Action},
+    label: {Label},
+    glass: glass: .glass(glassType)/.nonGlass(color(light: Color, dark: Color)),
+    clabel: color(.cstyle(Color)),
+    padding: Int
+    )
+    .tint(Color)
+    .disabled(Bool)
 ```
 
 **Inside GlossyButton**
