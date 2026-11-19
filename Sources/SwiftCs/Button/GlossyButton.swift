@@ -117,14 +117,6 @@ public struct GlossyButton<Label: View>: View {
                                     )
                             }
                         }
-                        Button (action: {
-                            action()
-                        }, label: {
-                            Text("Nothing")
-                                .opacity(0)
-                                .frame(width: 100, height: 50)
-                        })
-                        .frame(width: 100, height: 50)
                         sLabel()
                             .saturation(isEnabled ? 1.0 : 0.6)
                             .brightness(isEnabled ? 0.0 : -0.25)
@@ -135,6 +127,14 @@ public struct GlossyButton<Label: View>: View {
                                         state = true
                                     }
                             )
+                        Button (action: {
+                            action()
+                        }, label: {
+                            Text("Nothing")
+                                .opacity(0)
+                                .frame(width: 100, height: 50)
+                        })
+                        .frame(width: 100, height: 50)
                     }
                 )
                 .gesture(
