@@ -81,6 +81,8 @@ GlossyButton(
 
 5. glass: include 2 type is .glass and .nonGlass for .glass contains 2 types is .normal and .frosted, .normal will use normal glassEffect while .frosted will use background(.ultraThinMaterial), for .nonGlass also contains 2 types is .one and .more for .one you must put the Color, while .more contain light and dark color of the version.
 
+6. padding: is for setting the the amount of width and height of the inside rounded rectangle
+
 **Outside GlossyButton**
 
 1. .tint is for changing the color of the Toggle, if not added it will use the accent color, if the accent color is not set it will use system blue or .blue
