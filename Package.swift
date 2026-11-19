@@ -7,17 +7,22 @@ func findExcludedFiles(in targetPath: String) -> [String] {
     let baseURL = URL(fileURLWithPath: #filePath)
         .deletingLastPathComponent()
         .appendingPathComponent(targetPath)
+        .resolvingSymlinksInPath()
     
     guard let enumerator = fileManager.enumerator(at: baseURL, includingPropertiesForKeys: nil) else {
         return []
     }
     
+    let prefix = baseURL.path + "/"
     var excluded: [String] = []
+    
     for case let fileURL as URL in enumerator {
         let name = fileURL.lastPathComponent
         if name.hasSuffix(".md") || name.contains("_htu") {
-            let relativePath = fileURL.path.replacingOccurrences(of: baseURL.path + "/", with: "")
-            excluded.append(relativePath)
+            let resolvedPath = fileURL.resolvingSymlinksInPath().path
+            if resolvedPath.hasPrefix(prefix) {
+                excluded.append(String(resolvedPath.dropFirst(prefix.count)))
+            }
         }
     }
     return excluded
@@ -37,9 +42,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SwiftCs"
+            name: "SwiftCs",
             exclude: findExcludedFiles(in: "Sources/SwiftCs")
-            )
         )
     ]
 )
