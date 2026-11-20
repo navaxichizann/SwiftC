@@ -3,6 +3,12 @@
 
 A lightweight, customizable Swift package offering custom UI components, shapes, and utility features for SwiftUI applications.A lightweight, customizable Swift package offering custom UI components, shapes, and utility features for SwiftUI applications.
 
+## Features
+
+1. FeatureList
+2. GlossyButton
+3. GlossyToggle
+
 ## Project Structure
 ```
 SwiftCs-SwiftCustoms/
