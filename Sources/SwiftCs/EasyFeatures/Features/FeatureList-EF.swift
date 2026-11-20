@@ -33,7 +33,6 @@ public struct FeatureList: View {
                     withAnimation(.spring(duration: 0.2)) {
                         bool[0].toggle()
                     }
-                    print("Done")
                 },
                 label: {
                     Text(bool[0] ? "GlossyButton!" : "Button")
