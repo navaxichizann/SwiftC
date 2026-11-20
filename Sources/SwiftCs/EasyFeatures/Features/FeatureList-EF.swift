@@ -3,6 +3,8 @@ import SwiftCs
 
 public struct FeatureList: View {
     @State public var bool: [Bool] = [false, false, false]
+
+    public init() {}
     
     public var body: some View {
         VStack{
