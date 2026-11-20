@@ -1,5 +1,5 @@
 # SwiftCs (SwiftCustoms)
-*/SwiftCs Version: 1.1.6/*
+*/SwiftCs Version: 1.1.6.2/Release/Patch-6/*
 
 A lightweight, customizable Swift package offering custom UI components, shapes, and utility features for SwiftUI applications.
 
