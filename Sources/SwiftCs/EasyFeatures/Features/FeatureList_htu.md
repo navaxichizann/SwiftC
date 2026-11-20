@@ -1,5 +1,5 @@
 # Feature List
-*/FeatureList ver 1.0.0/*
+*/FeatureList ver 1.1.6:1.1.6/*
 
 Feature List is a way to see all of the features that contains in this Swift package. A way to use this feature is by adding ```FeatureList()``` in to your code.
 
