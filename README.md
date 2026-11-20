@@ -10,6 +10,7 @@ A lightweight, customizable Swift package offering custom UI components, shapes,
 3. GlossyToggle
 
 ## Project Structure
+*Version number might be larger than the SwiftCs version*
 ```
 SwiftCs-SwiftCustoms/
 ├── LICENSE
@@ -18,17 +19,17 @@ SwiftCs-SwiftCustoms/
 └── Sources/
     └── SwiftCs/
         ├── Button/
-        │   ├── GlossyButton.swift
+        │   ├── GlossyButton.swift *Ver: 1.1.6:1.1.0*
         │   └── GlossyButton_htu.md
         ├── EasyFeatures/
         │   ├── Features/
-        │   │   ├── FeatureList-EF.swift
+        │   │   ├── FeatureList-EF.swift *Ver: 1.1.6:1.1.4*
         │   │   ├── FeatureList_htu.md
-        │   │   └── Gradients-EF.swift
+        │   │   └── Gradients-EF.swift *Unavalible*
         │   └── Shapes/
-        │       └── TriangleShape.swift
+        │       └── TriangleShape.swift *In development*
         └── Toggle/
-            ├── GlossyToggle.swift
+            ├── GlossyToggle.swift *Ver: 1.1.6:1.0.04*
             ├── GlossyToggle_htu.md
-            └── LightSwitchToggle.swift
+            └── LightSwitchToggle.swift *Unavalible*
 ```
