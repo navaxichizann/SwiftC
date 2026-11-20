@@ -61,8 +61,8 @@ public struct GlossyButton<Label: View>: View {
                         case .glass(let type) :
                             switch type {
                             case .normal :
-                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
-                                    .glassEffect(in: .rect(cornerRadius: CGFloat(radius) - 5))
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - padding)
+                                    .glassEffect(in: .rect(cornerRadius: CGFloat(radius) - padding))
                                     .foregroundStyle(cs == .light ? .clear : .gray)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
                                     .scaleEffect(isPressed ? 0.95 : 1.0)
@@ -73,8 +73,8 @@ public struct GlossyButton<Label: View>: View {
                                             }
                                     )
                             case .frosted :
-                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
-                                    .background(.ultraThinMaterial, in: .rect(cornerRadius: CGFloat(radius) - 5))
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - padding)
+                                    .background(.ultraThinMaterial, in: .rect(cornerRadius: CGFloat(radius) - padding))
                                     .foregroundStyle(.clear)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
                                     .scaleEffect(isPressed ? 0.95 : 1.0)
@@ -88,7 +88,7 @@ public struct GlossyButton<Label: View>: View {
                         case .nonGlass(let colors) :
                             switch colors {
                             case .one(let color) :
-                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - padding)
                                     .foregroundStyle(color)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
                                     .saturation(isEnabled ? 1.0 : 0.6)
@@ -102,7 +102,7 @@ public struct GlossyButton<Label: View>: View {
                                             }
                                     )
                             case .more(let light, let dark) : 
-                                RoundedRectangle(cornerRadius: CGFloat(radius) - 5)
+                                RoundedRectangle(cornerRadius: CGFloat(radius) - padding)
                                     .foregroundStyle(cs == .light ? light : dark)
                                     .frame(width: 100 - padding * 2, height: 50 - padding * 2)
                                     .saturation(isEnabled ? 1.0 : 0.6)
