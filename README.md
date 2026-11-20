@@ -3,13 +3,17 @@
 
 A lightweight, customizable Swift package offering custom UI components, shapes, and utility features for SwiftUI applications.
 
-## Features
+### Features
 
 1. FeatureList
 2. GlossyButton
 3. GlossyToggle
 
-## Project Structure
+### Installation
+
+Add package dependency using this link (https://github.com/navaxichizann/SwiftCs.git)
+
+### Project Structure
 *Version number might be larger than the SwiftCs version*
 ```
 SwiftCs-SwiftCustoms/
