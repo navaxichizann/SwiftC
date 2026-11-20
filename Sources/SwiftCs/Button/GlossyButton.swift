@@ -59,13 +59,6 @@ public struct GlossyButton<Label: View>: View {
                 .overlay(
                     ZStack {
                         background()
-                        Button (action: {
-                            action()
-                        }, label: {
-                            Text("Nothing")
-                                .opacity(0)
-                        })
-                        .frame(width: .infinity, height: .infinity)
                         sLabel()
                             .saturation(isEnabled ? 1.0 : 0.6)
                             .brightness(isEnabled ? 0.0 : -0.25)
@@ -80,6 +73,18 @@ public struct GlossyButton<Label: View>: View {
                                 proxy.size
                             } action: { newSize in
                                 viewSize = newSize
+                            }
+                        Button (action: {
+                            action()
+                        }, label: {
+                            Text("Nothing")
+                                .opacity(0)
+                        })
+                        .frame(width: .infinity, height: .infinity)
+                        .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .updating($isPressed) { _, state, _ in
+                                state = true
                             }
                     }
                     .gesture(
