@@ -3,7 +3,7 @@
 
 A custom SwiftUI color palette featuring vibrant accent colors, warm earth tones, and clean neutral grays.
 ## How to use
-
+Add the package dependency using this link (https://github.com/navaxichizann/SwiftCs.git)
 ## Colors
 
 ### SubBase1 Color
