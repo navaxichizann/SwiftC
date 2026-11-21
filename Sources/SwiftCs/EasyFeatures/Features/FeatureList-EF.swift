@@ -12,6 +12,8 @@ public struct FeatureList: View {
                 .font(.system(size: 25, weight: .bold))
             ScrollView {
                 LazyVStack {
+                    Text("GlossyElements")
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
                     GlossyButtonShow()
                     GlossyToggleShow()
                     Text("Made by Navaxichizann on Github")
