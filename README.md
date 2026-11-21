@@ -1,5 +1,5 @@
 # SwiftCs (SwiftCustoms)
-*/SwiftCs Version: 1.1.6.2/Release/Patch-6/*
+*/SwiftCs Version: 1.1.7.4/Release/*
 
 A lightweight, customizable Swift package offering custom UI components, shapes, and utility features for SwiftUI applications.
 
@@ -14,8 +14,11 @@ A lightweight, customizable Swift package offering custom UI components, shapes,
 Add package dependency using this link (https://github.com/navaxichizann/SwiftCs.git)
 
 ### Project Structure
-*Version number might be larger than the SwiftCs version*
+
 ```
+As&Re/
+├── ColorPallet1.png
+└── ColorPallet2.png
 SwiftCs-SwiftCustoms/
 ├── LICENSE
 ├── Package.swift
@@ -23,17 +26,22 @@ SwiftCs-SwiftCustoms/
 └── Sources/
     └── SwiftCs/
         ├── Button/
-        │   ├── GlossyButton.swift *Ver: 1.1.6:1.1.0*
+        │   ├── GlossyButton.swift *Ver: 1.1.7:1.1.0*
         │   └── GlossyButton_htu.md
         ├── EasyFeatures/
         │   ├── Features/
-        │   │   ├── FeatureList-EF.swift *Ver: 1.1.6:1.1.4*
+        │   │   ├── FeatureList-EF.swift *Ver: 1.1.7:1.1.5*
         │   │   ├── FeatureList_htu.md
         │   │   └── Gradients-EF.swift *Unavalible*
-        │   └── Shapes/
-        │       └── TriangleShape.swift *In development*
+        │   └── Structure/
+        │       ├── Color/
+        │       │   ├── CPallet-GrayScale.swift *Ver: 1.1.7:1.1.7*
+        │       │   ├── CPallet-SubBase1.swift *Ver: 1.1.7:1.1.7*
+        │       │   └── Gradients-EF.swift
+        │       └── Shapes/
+        │           └── TriangleShape.swift *In development*
         └── Toggle/
-            ├── GlossyToggle.swift *Ver: 1.1.6:1.0.04*
+            ├── GlossyToggle.swift *Ver: 1.1.7:1.0.04*
             ├── GlossyToggle_htu.md
             └── LightSwitchToggle.swift *Unavalible*
 ```
