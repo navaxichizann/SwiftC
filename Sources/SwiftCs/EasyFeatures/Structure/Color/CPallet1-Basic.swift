@@ -1,6 +1,7 @@
 import SwiftUI
 
 public extension Color {
+    static let lemon = Color(red: 250 / 255, green: 239 / 255, blue: 74 / 255)
     static let lime = Color(red: 157 / 255, green: 243 / 255, blue: 44 / 255)
     static let matcha = Color(red: 116 / 255, green: 161 / 255, blue: 46 / 255)
     static let coral = Color(red: 255 / 255, green: 111 / 255, blue: 97 / 255)
@@ -11,6 +12,7 @@ public extension Color {
 }
 
 public extension ShapeStyle where Self == Color {
+    static var lemon: Color { .lemon }
     static var lime: Color { .lime }
     static var matcha: Color { .matcha }
     static var coral: Color { .coral }
